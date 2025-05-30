@@ -1,39 +1,38 @@
-# MicroK8s Health Check Script 🩺
+# MicroK8s Health Check 🩺
 
-This script performs a full health check of a MicroK8s cluster and generates a Markdown report.
+![Shell Script](https://img.shields.io/badge/language-Bash-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-active-brightgreen)
 
-## Features
+A CLI tool and Markdown report generator to monitor your local MicroK8s cluster.
 
-✅ Status of MicroK8s and nodes  
-✅ Overview of pods, services, ingresses  
-✅ PVC and storage status  
-✅ Pod restarts and crash detection  
-✅ DNS test using BusyBox  
-✅ Prometheus and Loki readiness check  
-✅ Snap refresh info  
-✅ Output: Colorized CLI + Markdown report (`microk8s_report.md`)
+## 🔍 What it does
 
-## Usage
+- Checks MicroK8s and node status
+- Lists pods, services, ingresses, PVCs
+- Verifies DNS, Prometheus targets and Loki readiness
+- Highlights pod restarts or unknown states
+- Outputs colorized terminal info and a `microk8s_report.md` file
+
+## 🚀 Usage
 
 ```bash
 chmod +x check_microk8s.sh
 ./check_microk8s.sh
 ```
 
-## Output Example
+## 📦 Requirements
 
-```markdown
-# MicroK8s Health Report - 2025-05-30
-...
-```
+- MicroK8s installed and running
+- `jq` and `curl`
+- Access to Prometheus and Loki endpoints (default: `*.nip.io`)
 
-## Requirements
+## 📂 Output
 
-- MicroK8s
-- jq
-- curl
-- BusyBox image available in registry (public by default)
+- `microk8s_report.md` – Markdown report you can archive or share
+- Colorized CLI output for quick checks
 
-## License
+## 📝 License
 
-MIT © Massimo Danieli
+MIT © [Massimo Danieli](https://github.com/MassimoDanieli)
+
