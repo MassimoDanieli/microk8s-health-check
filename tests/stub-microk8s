@@ -1,0 +1,8 @@
+#!/bin/bash
+case "$*" in
+  "status"*) echo "microk8s is running";;
+  *"get pods -A --no-headers"*) printf 'default web-1 1/1 Running 0 1d\nkube-system bad-2 0/1 CrashLoopBackOff 7 1d\n';;
+  *"kubectl run"*) echo "Name: kubernetes.default.svc.cluster.local"; echo "Address: 10.152.183.1";;
+  *"get pv"|*"get pvc"*) echo "No resources found";;
+  *) echo "NAME STATUS"; echo "x Ready";;
+esac
