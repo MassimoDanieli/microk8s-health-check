@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: ShellCheck
+        run: shellcheck check_microk8s.sh tests/run.sh tests/stub-microk8s tests/stub-snap
+      - name: Report against stub commands
+        run: bash tests/run.sh
